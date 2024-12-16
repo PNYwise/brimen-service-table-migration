@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "sync:dev": "STAGE=dev DB_BRIMEN_REVAMP_SYNC=true DB_BRIMEN_REVAMP_PRESETUJUAN_SYNC=true DB_BRIMEN_REVAMP_TRANSFER_SYNC=true DB_BRIMEN_REVAMP_LOG_SYNC=true DB_BRIMEN_REVAMP_OPS_SYNC=true npx ts-node src/index.ts",
+    "sync:local": "STAGE=local DB_BRIMEN_REVAMP_SYNC=true DB_BRIMEN_REVAMP_PRESETUJUAN_SYNC=true DB_BRIMEN_REVAMP_TRANSFER_SYNC=true DB_BRIMEN_REVAMP_LOG_SYNC=true DB_BRIMEN_REVAMP_OPS_SYNC=true npx ts-node src/index.ts",
+    "sync:prod": "STAGE=prod DB_BRIMEN_REVAMP_SYNC=true DB_BRIMEN_REVAMP_PRESETUJUAN_SYNC=true DB_BRIMEN_REVAMP_TRANSFER_SYNC=true DB_BRIMEN_REVAMP_LOG_SYNC=true DB_BRIMEN_REVAMP_OPS_SYNC=true npx ts-node src/index.ts",
+    "migration:dev": "STAGE=dev nest start --watch",
+    "migration:prod": "STAGE=prod nest start --debug --watch",
+    "migration:local:generate": "STAGE=local npx typeorm-ts-node-commonjs -d ./src/brimen-revamp-transfer/datasource.config.ts migration:generate ",
+    "migration:local:run": "STAGE=local npx typeorm-ts-node-commonjs migration:run -d ./src/brimen-revamp-transfer/datasource.config.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typeorm": "^0.3.20",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@nestjs/typeorm": "^10.0.2",
+    "dotenv": "^16.4.7",
+    "mysql2": "^3.11.5",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  }
+}
